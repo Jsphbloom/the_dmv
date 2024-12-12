@@ -14,9 +14,11 @@ class Registrant
     end
 
     def permit?
-        if @permit?
-            return true
-        end
+        @permit
+    end
+
+    def license_data
     end
 end
+
 ###
