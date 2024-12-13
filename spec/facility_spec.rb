@@ -31,4 +31,27 @@ RSpec.describe Facility do
       expect(@facility.registered_vehicles).to eq([cruz])
     end
   end
+
+  describe '#check registered vehicles' do
+    it 'has an array of vehicles' do
+      cruz = Vehicle.new({vin: '123456789abcdefgh', year: 2012, make: 'Chevrolet', model: 'Cruz', engine: :ice} )
+      bolt = Vehicle.new({vin: '987654321abcdefgh', year: 2019, make: 'Chevrolet', model: 'Bolt', engine: :ev} )
+      camaro = Vehicle.new({vin: '1a2b3c4d5e6f', year: 1969, make: 'Chevrolet', model: 'Camaro', engine: :ice} )
+      @facility.register_vehicle(cruz)
+      @facility.register_vehicle(bolt)
+      @facility.register_vehicle(camaro)
+      expect(@facility.registered_vehicles).to eq([cruz, bolt, camaro])
+    end
+  end
+  describe '#check fees' do
+    it 'has a value of collected fees' do
+      cruz = Vehicle.new({vin: '123456789abcdefgh', year: 2012, make: 'Chevrolet', model: 'Cruz', engine: :ice} )
+      bolt = Vehicle.new({vin: '987654321abcdefgh', year: 2019, make: 'Chevrolet', model: 'Bolt', engine: :ev} )
+      camaro = Vehicle.new({vin: '1a2b3c4d5e6f', year: 1969, make: 'Chevrolet', model: 'Camaro', engine: :ice} )
+      @facility.register_vehicle(cruz)
+      @facility.register_vehicle(bolt)
+      @facility.register_vehicle(camaro)
+      expect(@facility.collected_fees).to eq(325)
+    end
+  end
 end
