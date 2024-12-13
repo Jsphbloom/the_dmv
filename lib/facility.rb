@@ -16,15 +16,24 @@ class Facility
     @services << service
   end
 
+  def registered_vehicles
+    @registered_vehicles
+  end
+
+  def collected_fees
+    @collected_fees
+  end
+
   def register_vehicle(vehicle)
       if vehicle.antique?
         @collected_fees += 25
         @registered_vehicles << vehicle
-      elsif vehicle.engine == 'ev'
+      elsif vehicle.engine == :ev
         @collected_fees += 200
         @registered_vehicles << vehicle
       else
         @collected_fees += 100
         @registered_vehicles << vehicle
       end
+  end
 end
