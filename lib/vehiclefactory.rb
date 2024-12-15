@@ -3,14 +3,15 @@ require './lib/dmv_data_service'
 
 
 class Vehicle_factory
-
+attr_accessor :cars
     def initialize
-
+        @cars = []
     end
     
-    def create_vehicles(vehicle)
-        vehicle = Vehicle.new({wa_ev_registrations})
-        vehicle.vehicle_details << wa_ev_registrations
+    def create_vehicles(registrations)
+        registrations.each do |registration|
+            @cars << Vehicle.new(registration)
+        end
+        return @cars
     end
-
 end
