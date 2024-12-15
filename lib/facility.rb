@@ -42,7 +42,6 @@ class Facility
         @collected_fees += 100
         @registered_vehicles << vehicle
 
-
       end
   end
 
@@ -51,6 +50,14 @@ class Facility
       registrant.license_data[:written] = true
     else
       false
+    end
+  end
+
+  def administer_road_test(registrant)
+    if @services.include?("Road Test")
+      registrant.license_data[:license] = true
+    else
+     false
     end
   end
 
