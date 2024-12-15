@@ -79,7 +79,10 @@ RSpec.describe Facility do
     facility_1 = Facility.new({name: 'DMV Tremont Branch', address: '2855 Tremont Place Suite 118 Denver CO 80205', phone: '(720) 865-4600'})
     facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria Street Suite 101 Denver CO 80239', phone: '(720) 865-4600'})
 
+    facility_1.add_service('Written Test')
     facility_1.add_service('Road Test')
+    
+    facility_1.administer_written_test(registrant_1)
     facility_1.administer_road_test(registrant_1)
 
     expect(registrant_1.license_data[:license]).to eq(true)
@@ -94,9 +97,12 @@ describe "#renew_drivers_license" do
     facility_1 = Facility.new({name: 'DMV Tremont Branch', address: '2855 Tremont Place Suite 118 Denver CO 80205', phone: '(720) 865-4600'})
     facility_2 = Facility.new({name: 'DMV Northeast Branch', address: '4685 Peoria Street Suite 101 Denver CO 80239', phone: '(720) 865-4600'})
 
+    facility_1.add_service('Written Test')
+    facility_1.add_service('Road Test')
     facility_1.add_service('Renew License')
-    facility_1.renew_drivers_license(registrant_1)
 
+    facility_1.administer_road_test(registrant_1)
+    facility_1.renew_drivers_license(registrant_1)
     expect(registrant_1.license_data[:renewed]).to eq(true)
   end
 end
