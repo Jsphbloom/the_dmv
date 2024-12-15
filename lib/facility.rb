@@ -9,6 +9,7 @@ class Facility
     @services = []
     @registered_vehicles = []
     @collected_fees = 0
+
   end
 
   def add_service(service)
@@ -25,15 +26,31 @@ class Facility
   end
 
   def register_vehicle(vehicle)
+
       if vehicle.antique?
         @collected_fees += 25
         @registered_vehicles << vehicle
+
       elsif vehicle.engine == :ev
         @collected_fees += 200
         @registered_vehicles << vehicle
+
       else
         @collected_fees += 100
         @registered_vehicles << vehicle
+
       end
+  end
+
+  def plate_type(vehicle)
+    if vehicle.antique?
+      @plate_type << :antique
+    
+    elsif vehicle.electric_vehicle?
+      @plate_type << :ev
+    
+    else
+    @plate_type << :regular
+    end
   end
 end
