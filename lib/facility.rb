@@ -30,29 +30,18 @@ class Facility
       if vehicle.antique?
         @collected_fees += 25
         @registered_vehicles << vehicle
-        vehicle.plate_type = ":antique"
+
       elsif vehicle.engine == :ev
         @collected_fees += 200
         @registered_vehicles << vehicle
-        vehicle.plate_type = ":ev"
+
 
       else
         @collected_fees += 100
         @registered_vehicles << vehicle
-        vehicle.plate_type = ":regular"
+
 
       end
   end
 
-  # def plate_type(vehicle)
-  #   if vehicle.antique?
-  #     @plate_type << :antique
-    
-  #   elsif vehicle.electric_vehicle?
-  #     @plate_type << :ev
-    
-  #   else
-  #   @plate_type << :regular
-  #   end
-  # end
 end
