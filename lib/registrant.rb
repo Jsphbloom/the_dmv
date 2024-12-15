@@ -21,9 +21,6 @@ class Registrant
         @permit
     end
 
-    def administer_written_test(registrant)
-    end
-
 
     def earn_permit
         @permit = true
