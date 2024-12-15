@@ -26,7 +26,6 @@ class Facility
   end
 
   def register_vehicle(vehicle)
-
     vehicle.registration_date = Date.today.strftime("%m/%d/%Y")
 
       if vehicle.antique?
@@ -36,7 +35,6 @@ class Facility
       elsif vehicle.engine == :ev
         @collected_fees += 200
         @registered_vehicles << vehicle
-
 
       else
         @collected_fees += 100
