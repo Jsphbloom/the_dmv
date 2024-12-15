@@ -26,6 +26,8 @@ class Facility
   end
 
   def register_vehicle(vehicle)
+    
+    vehicle.registration_date = Date.today.strftime("%m/%d/%Y")
 
       if vehicle.antique?
         @collected_fees += 25

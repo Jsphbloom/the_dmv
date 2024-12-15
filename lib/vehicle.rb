@@ -5,10 +5,9 @@ class Vehicle
               :year,
               :make,
               :model,
-              :engine,
-              :registration_date
-              
-  attr_accessor :plate_type
+              :engine
+    
+  attr_accessor :registration_date
 
 
   def initialize(vehicle_details)
@@ -17,6 +16,7 @@ class Vehicle
     @make = vehicle_details[:make]
     @model = vehicle_details[:model]
     @engine = vehicle_details[:engine]
+
   end
 
   def antique?
