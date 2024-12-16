@@ -11,15 +11,15 @@ attr_accessor :cars
     def create_vehicles(vehicle_details)
         vehicle_details.each do |vehicle|
             new_vehicle = Vehicle.new({
-            vehicle_details[:vin],
-            vehicle_details[:year],
-            vehicle_details[:make],
-            vehicle_details[:model],
-            vehicle_details[:engine] = :ev
+            :vin => vehicle[:vin_1_10],
+            :year => vehicle[:model_year],
+            :make => vehicle[:make],
+            :model => vehicle[:model],
+            :engine => :ev
             })
-            if new_vehicle.model == "Prius Plug-in"
+            # if new_vehicle.model == "Prius Plug-in"
                 @cars << new_vehicle
-            end
+            # end
         end
     end
 end
