@@ -1,3 +1,5 @@
+require 'pry'
+
 class Dmv
 attr_reader :facilities
   def initialize
@@ -5,7 +7,9 @@ attr_reader :facilities
   end
 
   def add_facility(facility)
-    @facilities << facility
+    facility_locations.each do |facility|
+      @facilities << facility
+    end
   end
 
   def facilities_offering_service(service)
