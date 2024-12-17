@@ -3,7 +3,7 @@ class Facility
 
   def initialize(facility_details)
     @name = facility_details[:name] || facility_details[:dmv_office] || facility_details[:office_name] 
-    @address = facility_details[:address] || facility_details[:address_li] || facility_details[:street_address_line_1] || [:address1]
+    @address = facility_details[:address] || facility_details[:address_li] || facility_details[:street_address_line_1] || facility_details[:address1]
     @phone = facility_details[:phone] || facility_details[:public_phone_number]
     @services = []
     @registered_vehicles = []
