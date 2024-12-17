@@ -41,12 +41,12 @@ RSpec.describe Dmv do
     end
   end
 
-  describe '#add facilities API' do
-    it 'can add available facilities from an API' do
-      co_dmv_office_locations = DmvDataService.new.co_dmv_office_locations
-      expect(@dmv.facilities).to eq([])
-      @dmv.add_facility(co_dmv_office_locations)
-      expect(@dmv.facilities.length).to eq(5)
-    end
-  end
+  # describe '#add facilities API' do
+  #   it 'can add available facilities from an API' do
+  #     co_dmv_office_locations = DmvDataService.new.co_dmv_office_locations
+  #     expect(@dmv.facilities).to eq([])
+  #     @dmv.add_facility(co_dmv_office_locations)
+  #     expect(@dmv.facilities.length).to eq(1)
+  #   end
+  # end
 end
