@@ -7,9 +7,7 @@ attr_reader :facilities
   end
 
   def add_facility(facility)
-    facility_locations.each do |facility|
       @facilities << facility
-    end
   end
 
   def facilities_offering_service(service)
@@ -20,3 +18,4 @@ attr_reader :facilities
 
 
 end
+#branch 3/3
